@@ -1,0 +1,130 @@
+---
+import DocsLayout from '../layouts/DocsLayout.astro';
+import CodeBlock from '../components/CodeBlock.astro';
+---
+
+<DocsLayout title="Installation" description="Learn how to install and set up Cepress Generator">
+  <h1 class="text-4xl font-bold mb-8">Installation</h1>
+
+  <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+    Cepress Generator can be installed globally or used directly with npx. We recommend using npx to always get the latest version.
+  </p>
+
+  <h2 class="text-2xl font-semibold mb-6">Using npx (Recommended)</h2>
+  
+  <p class="mb-4">The easiest way to use Cepress Generator is with npx, which will always use the latest version:</p>
+  
+  <CodeBlock
+    code={`npm install -g create-cepress
+npx create-cepress my-app`}
+    title="Quick Start"
+  />
+
+  <h2 class="text-2xl font-semibold mb-6 mt-12">Global Installation</h2>
+  
+  <p class="mb-4">If you prefer to install globally:</p>
+  
+  <CodeBlock 
+    code="npm install -g create-cepress"
+    title="Install globally"
+  />
+
+  <p class="mb-4">Then create projects with:</p>
+
+  <CodeBlock 
+    code={`create-cepress my-project`}
+    title="Create project after global install"
+  />
+
+  <h2 class="text-2xl font-semibold mb-6 mt-12">Requirements</h2>
+
+  <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-8">
+    <h3 class="font-semibold text-blue-800 dark:text-blue-200 mb-4">System Requirements</h3>
+    <ul class="space-y-2 text-blue-700 dark:text-blue-300">
+      <li class="flex items-center space-x-2">
+        <span class="text-green-500">✓</span>
+        <span>Node.js 16.x or higher</span>
+      </li>
+      <li class="flex items-center space-x-2">
+        <span class="text-green-500">✓</span>
+        <span>npm 7.x or higher</span>
+      </li>
+      <li class="flex items-center space-x-2">
+        <span class="text-green-500">✓</span>
+        <span>Git (recommended for version control)</span>
+      </li>
+    </ul>
+  </div>
+
+  <h2 class="text-2xl font-semibold mb-6">Verify Installation</h2>
+
+  <p class="mb-4">To verify that everything is working correctly, create a test project:</p>
+
+  <CodeBlock 
+    language="bash"
+    code={`# Create a test project
+npx create-cepress test-project
+
+# Navigate to the project
+cd test-project
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev`}
+    title="Test the installation"
+  />
+
+  <p class="mt-6 text-gray-600 dark:text-gray-300">
+    If the server starts successfully and shows "Server running on http://localhost:3000", you're all set!
+  </p>
+
+  <h2 class="text-2xl font-semibold mb-6 mt-12">Troubleshooting</h2>
+
+  <div class="space-y-6">
+    <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+      <h3 class="font-semibold mb-3">Command not found</h3>
+      <p class="text-gray-600 dark:text-gray-300 mb-3">
+        If you get a "command not found" error, make sure npm's global bin directory is in your PATH.
+      </p>
+      <CodeBlock 
+        code="npm config get prefix"
+        title="Check npm prefix"
+      />
+    </div>
+
+    <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+      <h3 class="font-semibold mb-3">Permission errors</h3>
+      <p class="text-gray-600 dark:text-gray-300 mb-3">
+        On macOS/Linux, you might need to configure npm to avoid permission issues:
+      </p>
+      <CodeBlock 
+        language="bash"
+        code={`# Create a directory for global packages
+mkdir ~/.npm-global
+
+# Configure npm to use it
+npm config set prefix '~/.npm-global'
+
+# Add to your shell profile (.bashrc, .zshrc, etc.)
+export PATH=~/.npm-global/bin:$PATH`}
+        title="Fix npm permissions"
+      />
+    </div>
+
+    <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+      <h3 class="font-semibold mb-3">Node.js version issues</h3>
+      <p class="text-gray-600 dark:text-gray-300 mb-3">
+        Cepress Generator requires Node.js 16 or higher. Check your version:
+      </p>
+      <CodeBlock 
+        code="node --version"
+        title="Check Node.js version"
+      />
+      <p class="text-gray-600 dark:text-gray-300 mt-3">
+        Consider using <a href="https://github.com/nvm-sh/nvm" class="text-primary-600 hover:text-primary-700">nvm</a> to manage multiple Node.js versions.
+      </p>
+    </div>
+  </div>
+</DocsLayout>

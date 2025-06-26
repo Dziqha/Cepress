@@ -1,0 +1,25 @@
+---
+import DocsLayout from '../layouts/DocsLayout.astro';
+---
+
+<DocsLayout title="Authentication" description="Learn how authentication works in Cepress Generator">
+  <h1 class="text-4xl font-bold mb-8">Authentication</h1>
+
+  <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+    Cepress Generator supports JWT-based authentication for secure access control.
+    You can enable or disable authentication during project setup.
+  </p>
+
+  <h2 class="text-2xl font-semibold mb-6">Endpoints</h2>
+  <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+    <li><code>POST /api/auth/register</code> — Register new user</li>
+    <li><code>POST /api/auth/login</code> — Login with email & password</li>
+    <li><code>GET /api/auth/profile</code> — Get logged-in user profile</li>
+  </ul>
+
+  <h2 class="text-2xl font-semibold mt-12 mb-6">Token Handling</h2>
+  <p class="mb-4">Upon login, users receive a JWT token. Send this token as a Bearer token in the <code>Authorization</code> header for protected routes.</p>
+
+  <h2 class="text-2xl font-semibold mt-12 mb-6">Custom Middleware</h2>
+  <p>You can add your own authentication middleware in <code>src/middleware/auth.ts</code> to customize validation logic or token storage.</p>
+</DocsLayout>

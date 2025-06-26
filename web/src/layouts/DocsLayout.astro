@@ -1,0 +1,77 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div class="flex">
+      <!-- Sidebar -->
+      <aside class="fixed inset-y-0 left-0 z-50 w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 overflow-y-auto lg:block hidden">
+        <div class="p-6">
+          <a href="/" class="flex items-center space-x-2">
+            <img src="/cepress.png" alt="Cepress Logo" class="w-20 h-16" />
+            <span class="text-xl font-bold  text-gray-600  dark:text-white">Cepress</span>
+          </a>
+        </div>
+        
+        <nav class="px-6 pb-6">
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-3">Getting Started</h3>
+              <ul class="space-y-2">
+                <li><a href="/" class="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 py-1">Introduction</a></li>
+                <li><a href="/installation" class="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 py-1">Installation</a></li>
+                <li><a href="/quick-start" class="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 py-1">Quick Start</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-3">Configuration</h3>
+              <ul class="space-y-2">
+                <li><a href="/database" class="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 py-1">Database Options</a></li>
+                <li><a href="/authentication" class="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 py-1">Authentication</a></li>
+                <li><a href="/validation" class="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 py-1">Validation</a></li>
+                <li><a href="/documentation" class="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 py-1">API Documentation</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-3">Advanced</h3>
+              <ul class="space-y-2">
+                <li><a href="/prisma" class="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 py-1">Prisma Integration</a></li>
+                <li><a href="/deployment" class="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 py-1">Deployment</a></li>
+                <li><a href="/contribution" class="block text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 py-1">Contribution</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 lg:ml-64">
+        <div class="max-w-4xl mx-auto py-8 px-6">
+          <article class="prose prose-lg dark:prose-invert max-w-none">
+            <slot />
+          </article>
+        </div>
+      </main>
+    </div>
+  </div>
+</BaseLayout>
+
+<script>
+  // Theme toggle functionality
+  function initTheme() {
+    const theme = localStorage.getItem('theme') || 'light';
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+  }
+  
+  initTheme();
+</script>

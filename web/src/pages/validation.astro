@@ -1,0 +1,42 @@
+---
+import CodeBlock from '../components/CodeBlock.astro';
+import DocsLayout from '../layouts/DocsLayout.astro';
+---
+
+<DocsLayout title="Validation" description="Learn how to handle request validation in Cepress Generator">
+  <h1 class="text-4xl font-bold mb-8">Validation</h1>
+
+  <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+    Cepress Generator includes built-in request validation using <code>zod</code>, a TypeScript-first schema validation library.
+  </p>
+
+  <h2 class="text-2xl font-semibold mb-6">Using Zod</h2>
+  <p class="mb-4">Validation schemas are typically defined in <code>src/schemas/</code>. Here’s an example for user registration:</p>
+
+  <CodeBlock 
+    language="ts"
+    code={`import { z } from 'zod';
+
+export const registerSchema = z.object({
+  email: z.string().email(),
+  password: z.string().min(8),
+  confirmPassword: z.string().min(8),
+});`}
+    title="User registration schema"
+  />
+
+  <p class="mb-4 mt-4">Once the schema is defined, you can use it in your routes:</p>
+
+  <CodeBlock 
+    language="ts"
+    code={`import { z } from 'zod';
+import { registerSchema } from '../schemas';
+
+app.post('/api/auth/register', async (req, res) => {
+  const { email, password, confirmPassword } = registerSchema.parse(req.body);
+  // ... your registration logic
+});`}
+    title="Register route"
+  />
+
+</DocsLayout>

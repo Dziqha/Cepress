@@ -1,0 +1,49 @@
+---
+import CodeBlock from '../components/CodeBlock.astro';
+import DocsLayout from '../layouts/DocsLayout.astro';
+---
+
+<DocsLayout title="Prisma Integration" description="Learn how Prisma ORM is integrated in Cepress Generator">
+  <h1 class="text-4xl font-bold mb-8">Prisma Integration</h1>
+
+  <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+    Cepress Generator offers first-class support for Prisma as the default ORM for PostgreSQL and MySQL setups.
+  </p>
+
+  <h2 class="text-2xl font-semibold mb-6">Generated Files</h2>
+  <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+    <li>• <code>prisma/schema.prisma</code> — Your data models and DB config</li>
+    <li>• <code>src/models/</code> — Model logic (optional)</li>
+    <li>• <code>.env</code> — Contains <code>DATABASE_URL</code> for connection</li>
+  </ul>
+
+  <h2 class="text-2xl font-semibold mt-12 mb-6">Common Commands</h2>
+
+  <CodeBlock 
+    language="bash"
+    code={`# Generate Prisma client
+npx prisma generate
+
+# Run database migration
+npx prisma migrate dev --name init
+
+# Open Prisma Studio (optional)
+npx prisma studio`}
+    title="Prisma commands"
+  />
+  <h2 class="text-2xl font-semibold mt-12 mb-6">Using Prisma Client</h2>
+
+  <p class="mb-4">Once you've generated the Prisma client, you can use it to interact with your database:</p>
+
+  <CodeBlock 
+    language="ts"
+    code={`import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
+// Use prisma to query and mutate data
+const user = await prisma.user.findUnique({ where: { id: 1 } });
+await prisma.user.create({ data: { name: 'John Doe' } });`}
+    title="Prisma client usage"
+  />
+</DocsLayout>

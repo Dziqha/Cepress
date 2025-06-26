@@ -1,0 +1,234 @@
+---
+import DocsLayout from '../layouts/DocsLayout.astro';
+import CodeBlock from '../components/CodeBlock.astro';
+---
+
+<DocsLayout title="Quick Start" description="Get up and running with Cepress Generator in minutes">
+  <h1 class="text-4xl font-bold mb-8">Quick Start Guide</h1>
+
+  <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+    This guide will walk you through creating your first Express.js project with Cepress Generator. 
+    You'll have a fully functional API with authentication and documentation in under 5 minutes.
+  </p>
+
+  <h2 class="text-2xl font-semibold mb-6">Step 1: Create Your Project</h2>
+
+  <p class="mb-4">Run the Cepress Generator command and follow the interactive prompts:</p>
+
+  <CodeBlock 
+    code="npx create-cepress my-api"
+    title="Create new project"
+  />
+
+  <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 mb-8">
+    <h3 class="font-semibold mb-4">Interactive Configuration</h3>
+    <p class="text-gray-600 dark:text-gray-300 mb-4">You'll be asked several questions to configure your project:</p>
+
+    <div class="space-y-4">
+      <div class="flex items-start space-x-3">
+        <span class="text-primary-500 font-mono">?</span>
+        <div>
+          <strong>Pilih database:</strong>
+          <ul class="mt-2 text-sm text-gray-600 dark:text-gray-300 space-y-1">
+            <li>• SQLite (default — quick setup)</li>
+            <li>• PostgreSQL (production ready)</li>
+            <li>• MySQL (popular choice)</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="flex items-start space-x-3">
+        <span class="text-primary-500 font-mono">?</span>
+        <div>
+          <strong>Gunakan Prisma sebagai ORM?</strong>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mt-1">Type-safe database client (recommended for PostgreSQL/MySQL)</p>
+        </div>
+      </div>
+      
+      <div class="flex items-start space-x-3">
+        <span class="text-primary-500 font-mono">?</span>
+        <div>
+          <strong>Pilih autentikasi:</strong>
+          <ul class="mt-2 text-sm text-gray-600 dark:text-gray-300 space-y-1">
+            <li>• Tanpa Auth</li>
+            <li>• JWT Auth (Register/Login with password hashing)</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="flex items-start space-x-3">
+        <span class="text-primary-500 font-mono">?</span>
+        <div>
+          <strong>Pilih API documentation:</strong>
+          <ul class="mt-2 text-sm text-gray-600 dark:text-gray-300 space-y-1">
+            <li>• Tidak pakai Swagger</li>
+            <li>• Swagger (OpenAPI 3.0 docs)</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="flex items-start space-x-3">
+        <span class="text-primary-500 font-mono">?</span>
+        <div>
+          <strong>Pilih contoh model:</strong>
+          <ul class="mt-2 text-sm text-gray-600 dark:text-gray-300 space-y-1">
+            <li>• User + Post (with relationships)</li>
+            <li>• Kosong (blank project)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="text-2xl font-semibold mb-6">Step 2: Install Dependencies</h2>
+
+  <p class="mb-4">Navigate to your project directory and install the dependencies:</p>
+
+  <CodeBlock 
+    language="bash"
+    code={`cd my-api
+npm install`}
+    title="Install dependencies"
+  />
+
+  <h2 class="text-2xl font-semibold mb-6 mt-4">Step 3: Configure Environment</h2>
+
+  <p class="mb-4">Copy the example environment file and configure your settings:</p>
+
+  <CodeBlock 
+    language="bash"
+    code={`cp .env.example .env`}
+    title="Copy environment file"
+  />
+
+  <p class="mb-4 mt-4">Edit the <code>.env</code> file with your configuration:</p>
+
+  <CodeBlock 
+    language="bash"
+    code={`# Server Configuration
+PORT=3000
+NODE_ENV=development
+
+# Database (SQLite example)
+DATABASE_URL=file:./dev.db
+
+# JWT Secret (change this!)
+JWT_SECRET=your-super-secret-jwt-key
+
+# For Prisma (if selected)
+# DATABASE_URL="postgresql://user:password@localhost:5432/mydb"`}
+    title=".env configuration"
+  />
+
+  <h2 class="text-2xl font-semibold mb-6 mt-4">Step 4: Set Up Database (If Using Prisma)</h2>
+
+  <p class="mb-4">If you selected Prisma, run the initial migration:</p>
+
+  <CodeBlock 
+    language="bash"
+    code={`npx prisma migrate dev --name init`}
+    title="Run database migration"
+  />
+
+  <h2 class="text-2xl font-semibold mb-6 mt-4">Step 5: Start Development Server</h2>
+
+  <p class="mb-4">Start your API server:</p>
+
+  <CodeBlock 
+    code={`npm run dev`}
+    title="Start development server"
+  />
+
+  <p class="mb-8 mt-4">Your API will be available at <code>http://localhost:3000</code></p>
+
+  <h2 class="text-2xl font-semibold mb-6">Step 6: Test Your API</h2>
+
+  <div class="grid md:grid-cols-2 gap-6 mb-8">
+    <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-6">
+      <h3 class="font-semibold text-green-800 dark:text-green-200 mb-4">✅ Basic Endpoints</h3>
+      <ul class="space-y-2 text-green-700 dark:text-green-300">
+        <li><code>GET /</code> - Welcome message</li>
+        <li><code>GET /health</code> - Health check</li>
+        <li><code>GET /api</code> - API info</li>
+      </ul>
+    </div>
+
+    <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6">
+      <h3 class="font-semibold text-blue-800 dark:text-blue-200 mb-4">🔐 Auth Endpoints (if enabled)</h3>
+      <ul class="space-y-2 text-blue-700 dark:text-blue-300">
+        <li><code>POST /api/auth/register</code></li>
+        <li><code>POST /api/auth/login</code></li>
+        <li><code>GET /api/auth/profile</code></li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="text-xl font-semibold mb-4">Test with curl</h3>
+
+  <CodeBlock 
+    language="bash"
+    code={`# Test basic endpoint
+curl http://localhost:3000/
+
+# Test API info
+curl http://localhost:3000/api
+
+# Register a new user (if auth is enabled)
+curl -X POST http://localhost:3000/api/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{"email": "test@example.com", "password": "password123"}'`}
+    title="Test API endpoints"
+  />
+
+  <h2 class="text-2xl font-semibold mb-6 mt-12">Step 7: Explore API Documentation</h2>
+
+  <p class="mb-4">If you enabled Swagger documentation, visit:</p>
+
+  <div class="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 rounded-lg p-6 mb-8">
+    <h3 class="font-semibold text-purple-800 dark:text-purple-200 mb-2">📚 Swagger UI</h3>
+    <p class="text-purple-700 dark:text-purple-300">
+      <a href="http://localhost:3000/api-docs" class="underline hover:no-underline">http://localhost:3000/api-docs</a>
+    </p>
+    <p class="text-sm text-purple-600 dark:text-purple-400 mt-2">
+      Interactive API documentation where you can test endpoints directly in the browser.
+    </p>
+  </div>
+
+  <h2 class="text-2xl font-semibold mb-6">Next Steps</h2>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+      <h3 class="font-semibold mb-3">🏗️ Build Your Models</h3>
+      <p class="text-gray-600 dark:text-gray-300 text-sm">
+        Add custom models to <code>src/models/</code> and create corresponding routes in <code>src/routes/</code>.
+      </p>
+    </div>
+
+    <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+      <h3 class="font-semibold mb-3">🔒 Secure Your API</h3>
+      <p class="text-gray-600 dark:text-gray-300 text-sm">
+        Add middleware for rate limiting, CORS configuration, and request validation.
+      </p>
+    </div>
+
+    <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+      <h3 class="font-semibold mb-3">🚀 Deploy</h3>
+      <p class="text-gray-600 dark:text-gray-300 text-sm">
+        Deploy to Heroku, Vercel, Railway, or any Node.js hosting platform.
+      </p>
+    </div>
+  </div>
+
+  <div class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-6 mt-8">
+    <div class="flex items-start space-x-3">
+      <span class="text-2xl">🎉</span>
+      <div>
+        <h3 class="font-semibold text-yellow-800 dark:text-yellow-200 mb-2">Congratulations!</h3>
+        <p class="text-yellow-700 dark:text-yellow-300">
+          You now have a production-ready Express.js API with modern tooling. 
+          Explore the generated code to understand the project structure and customize it for your needs.
+        </p>
+      </div>
+    </div>
+  </div>
+</DocsLayout>

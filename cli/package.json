@@ -1,0 +1,33 @@
+{
+  "name": "create-cepress",
+  "version": "1.0.0",
+  "description": "CLI untuk membuat project Node.js dengan Express bersama Cepress Generator",
+  "main": "index.js",
+  "bin": {
+    "create-cepress": "./bin/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "keywords": [
+    "nodejs",
+    "express",
+    "boilerplate",
+    "cli",
+    "generator"
+  ],
+  "author": "Haadziq",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^14.0.0",
+    "execa": "^9.6.0",
+    "fs-extra": "^11.1.1",
+    "inquirer": "^9.2.0",
+    "ora": "^7.0.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

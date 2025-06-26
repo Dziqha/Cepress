@@ -1,0 +1,34 @@
+---
+import CodeBlock from '../components/CodeBlock.astro';
+import DocsLayout from '../layouts/DocsLayout.astro';
+---
+
+<DocsLayout title="Deployment" description="Deploy your Cepress project to popular platforms">
+  <h1 class="text-4xl font-bold mb-8">Deployment</h1>
+
+  <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+    Cepress Generator projects are standard Node.js apps, so they can be deployed anywhere Node.js is supported.
+  </p>
+
+  <h2 class="text-2xl font-semibold mb-6">Recommended Platforms</h2>
+  <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+    <li>• <a href="https://railway.app" class="text-primary-600" target="_blank">Railway</a></li>
+    <li>• <a href="https://vercel.com" class="text-primary-600" target="_blank">Vercel (with custom server)</a></li>
+    <li>• <a href="https://render.com" class="text-primary-600" target="_blank">Render</a></li>
+    <li>• <a href="https://fly.io" class="text-primary-600" target="_blank">Fly.io</a></li>
+    <li>• <a href="https://heroku.com" class="text-primary-600" target="_blank">Heroku</a></li>
+  </ul>
+
+  <h2 class="text-2xl font-semibold mt-12 mb-6">Environment Variables</h2>
+  <p class="mb-4">Make sure your deployment platform includes a valid <code>.env</code> configuration with <code>DATABASE_URL</code> and <code>JWT_SECRET</code>.</p>
+
+  <h2 class="text-2xl font-semibold mt-12 mb-6">Build & Start</h2>
+  <p class="mb-4">Once you've set up your environment variables, you can build and start your project:</p>
+
+  <CodeBlock 
+    language="bash"
+    code={`npm run build
+npm run start`}
+    title="Build and start"
+  />
+</DocsLayout>

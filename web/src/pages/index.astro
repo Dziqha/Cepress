@@ -1,0 +1,120 @@
+---
+import DocsLayout from '../layouts/DocsLayout.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import CodeBlock from '../components/CodeBlock.astro';
+---
+
+<DocsLayout title="Introduction" description="Cepress Generator - Create Node.js Express projects with modern tools in seconds">
+  <div class="text-center mb-12">
+    <div class="flex items-center justify-center space-x-3 mb-6">
+		<img src="/cepress.png" alt="Cepress Logo" class="w-52 h-30" />
+      <h1 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-600 to-secondary-600 bg-clip-text text-transparent">
+        Cepress Generator
+      </h1>
+    </div>
+    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+      Create production-ready Node.js Express applications with modern tools and best practices in seconds. 
+      Configure databases, authentication, validation, and API documentation with an interactive CLI.
+    </p>
+  </div>
+
+  <div class="mb-12">
+    <CodeBlock 
+      code="npm install -g create-cepress\nnpx create-cepress my-app" 
+      title="Quick Start"
+    />
+  </div>
+
+  <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Key Features</h2>
+  
+  <div class="grid md:grid-cols-2 gap-6 mb-12">
+    <FeatureCard
+      icon="🗄️"
+      title="Multiple Database Support"
+      description="Choose from SQLite, PostgreSQL, or MySQL with optional Prisma ORM integration for type-safe database operations."
+    />
+    
+    <FeatureCard
+      icon="🔐"
+      title="Built-in Authentication"
+      description="JWT-based authentication system with password hashing, user registration, and login endpoints ready to use."
+    />
+    
+    <FeatureCard
+      icon="📚"
+      title="API Documentation"
+      description="Automatic Swagger/OpenAPI 3.0 documentation generation with interactive API explorer using swagger-ui-express."
+    />
+    
+    <FeatureCard
+      icon="✅"
+      title="Request Validation"
+      description="Robust input validation using Zod schemas with automatic error handling and type inference."
+    />
+    
+    <FeatureCard
+      icon="🏗️"
+      title="Project Templates"
+      description="Pre-built model relationships (User + Post) or start with a clean slate - perfect for rapid prototyping."
+    />
+    
+    <FeatureCard
+      icon="⚡"
+      title="Modern Tooling"
+      description="ESM modules, environment configuration, error handling, CORS setup, and development server with hot reload."
+    />
+  </div>
+
+  <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">What You Get</h2>
+  
+  <div class="bg-gradient-to-r from-primary-50 to-secondary-50 dark:from-gray-800 dark:to-gray-700 rounded-xl p-8 mb-8">
+    <h3 class="text-xl font-semibold mb-4">Generated Project Structure</h3>
+    <CodeBlock 
+      language="text"
+      code="my-cepress-app/\n├── src/\n│   ├── controllers/     # Route handlers\n│   ├── middleware/      # Custom middleware\n│   ├── models/          # Database models\n│   ├── routes/          # API routes\n│   ├── schemas/         # Zod validation schemas\n│   ├── utils/           # Helper functions\n│   ├── app.js           # Express app setup\n│   └── server.js        # Application entry point\n├── prisma/              # Prisma schema (if selected)\n├── .env.example         # Environment template\n├── package.json         # Dependencies\n"
+    />
+  </div>
+
+  <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Ready in Minutes</h2>
+  
+  <div class="grid md:grid-cols-3 gap-6 mb-8">
+    <div class="text-center">
+      <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mx-auto mb-4">
+        <span class="text-2xl font-bold text-primary-600 dark:text-primary-400">1</span>
+      </div>
+      <h3 class="font-semibold mb-2">Install & Run</h3>
+      <p class="text-gray-600 dark:text-gray-300 text-sm">Run the command and answer a few questions about your project preferences.</p>
+    </div>
+    
+    <div class="text-center">
+      <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mx-auto mb-4">
+        <span class="text-2xl font-bold text-primary-600 dark:text-primary-400">2</span>
+      </div>
+      <h3 class="font-semibold mb-2">Configure</h3>
+      <p class="text-gray-600 dark:text-gray-300 text-sm">Set up your database connection and environment variables in minutes.</p>
+    </div>
+    
+    <div class="text-center">
+      <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mx-auto mb-4">
+        <span class="text-2xl font-bold text-primary-600 dark:text-primary-400">3</span>
+      </div>
+      <h3 class="font-semibold mb-2">Start Building</h3>
+      <p class="text-gray-600 dark:text-gray-300 text-sm">Your Express API is ready with authentication, validation, and documentation.</p>
+    </div>
+  </div>
+
+  <div class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-6">
+    <div class="flex items-start space-x-3">
+      <div class="flex-shrink-0">
+        <span class="text-2xl">💡</span>
+      </div>
+      <div>
+        <h3 class="font-semibold text-yellow-800 dark:text-yellow-200 mb-2">Pro Tip</h3>
+        <p class="text-yellow-700 dark:text-yellow-300">
+          Start with the User + Post template to see how relationships work, then customize or create your own models. 
+          The generated code follows Express.js best practices and is production-ready.
+        </p>
+      </div>
+    </div>
+  </div>
+</DocsLayout>

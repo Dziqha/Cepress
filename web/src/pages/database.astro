@@ -1,0 +1,115 @@
+---
+import DocsLayout from '../layouts/DocsLayout.astro';
+import CodeBlock from '../components/CodeBlock.astro';
+---
+
+<DocsLayout title="Database Configuration" description="Learn about database options and setup with Cepress Generator">
+  <h1 class="text-4xl font-bold mb-8">Database Configuration</h1>
+
+  <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+    Cepress Generator supports multiple database options with optional Prisma ORM integration. 
+    Choose the database that best fits your project requirements.
+  </p>
+
+  <h2 class="text-2xl font-semibold mb-6">Supported Databases</h2>
+
+  <!-- no code change needed here -->
+
+  <h2 class="text-2xl font-semibold mb-6">Database Setup</h2>
+
+  <h3 class="text-xl font-semibold mb-4">SQLite Configuration</h3>
+
+  <p class="mb-4">SQLite is the default option and requires no additional setup:</p>
+
+  <CodeBlock 
+    language="bash"
+    code={`# .env file
+DATABASE_URL=file:./dev.db`}
+    title="SQLite configuration"
+  />
+
+  <!-- Other sections simplified for brevity -->
+
+  <h3 class="text-xl font-semibold mb-4 mt-4  ">PostgreSQL Configuration</h3>
+
+  <p class="mb-4">For PostgreSQL, you'll need a running database server:</p>
+
+  <CodeBlock 
+    language="bash"
+    code={`# .env file
+DATABASE_URL="postgresql://username:password@localhost:5432/mydatabase"`}
+    title="PostgreSQL configuration"
+  />
+
+  <h3 class="text-xl font-semibold mb-4 mt-4">MySQL Configuration</h3>
+
+  <CodeBlock 
+    language="bash"
+    code={`# .env file
+DATABASE_URL="mysql://username:password@localhost:3306/mydatabase"`}
+    title="MySQL configuration"
+  />
+
+  <h3 class="text-xl font-semibold mb-4 mt-4">Running Migrations</h3>
+
+  <p class="mb-4">After setting up your database connection, run the initial migration:</p>
+
+  <CodeBlock 
+    language="bash"
+    code={`# Generate Prisma client
+npx prisma generate
+
+# Run database migration
+npx prisma migrate dev --name init
+
+# Open Prisma Studio (optional)
+npx prisma studio`}
+    title="Prisma commands"
+  />
+
+  <h2 class="text-2xl font-semibold mb-6 mt-12">Environment Variables</h2>
+
+  <p class="mb-4">Complete environment variable examples for each database:</p>
+
+  <div class="space-y-6">
+    <div>
+      <h4 class="font-semibold mb-3">SQLite</h4>
+      <CodeBlock 
+        language="bash"
+        code={`# .env
+PORT=3000
+NODE_ENV=development
+DATABASE_URL=file:./dev.db
+JWT_SECRET=your-super-secret-jwt-key`}
+        title="SQLite .env"
+      />
+    </div>
+
+    <div>
+      <h4 class="font-semibold mb-3">PostgreSQL</h4>
+      <CodeBlock 
+        language="bash"
+        code={`# .env
+PORT=3000
+NODE_ENV=development
+DATABASE_URL=postgresql://username:password@localhost:5432/mydatabase
+JWT_SECRET=your-super-secret-jwt-key`}
+        title="PostgreSQL .env"
+      />
+    </div>
+
+    <div>
+      <h4 class="font-semibold mb-3">MySQL</h4>
+      <CodeBlock 
+        language="bash"
+        code={`# .env
+PORT=3000
+NODE_ENV=development
+DATABASE_URL=mysql://username:password@localhost:3306/mydatabase
+JWT_SECRET=your-super-secret-jwt-key`}
+        title="MySQL .env"
+      />
+    </div>
+  </div>
+
+</DocsLayout>

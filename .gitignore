@@ -1,0 +1,22 @@
+# Node
+node_modules/
+.env
+dist/
+.cache/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Astro / CLI builds
+web/dist/
+cli/node_modules/
+cli/dist/
