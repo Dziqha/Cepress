@@ -5,116 +5,279 @@ import CodeBlock from '../components/CodeBlock.astro';
 ---
 
 <DocsLayout title="Introduction" description="Cepress Generator - Create Node.js Express projects with modern tools in seconds">
-  <div class="text-center mb-12">
-    <div class="flex items-center justify-center space-x-3 mb-6">
-		<img src="/cepress.png" alt="Cepress Logo" class="w-52 h-30" />
-      <h1 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-600 to-secondary-600 bg-clip-text text-transparent">
-        Cepress Generator
-      </h1>
+  <!-- Hero Section -->
+  <div class="text-center mb-16 animate-fade-in">
+    <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6  mb-8">
+      <div class="relative">
+        <img src="/cepress.png" alt="Cepress Logo" class="w-24 h-20 sm:w-32 sm:h-24 animate-bounce-subtle" />
+        <div class="absolute -inset-2 bg-primary-500 rounded-full opacity-20 blur-xl"></div>
+      </div>
+      <div class="text-center sm:text-left">
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-2">
+          Cepress Generator
+        </h1>
+        <div class="flex items-center justify-center sm:justify-start space-x-2">
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200">
+            v1.0.0
+          </span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-accent-100 text-accent-800 dark:bg-accent-900 dark:text-accent-200">
+            Open Source
+          </span>
+        </div>
+      </div>
     </div>
-    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+    
+    <p class="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto mt-32 leading-relaxed mb-8">
       Create production-ready Node.js Express applications with modern tools and best practices in seconds. 
       Configure databases, authentication, validation, and API documentation with an interactive CLI.
     </p>
-  </div>
 
-  <div class="mb-12">
-    <CodeBlock 
-      code="npm install -g create-cepress\nnpx create-cepress my-app" 
-      title="Quick Start"
-    />
-  </div>
-
-  <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Key Features</h2>
-  
-  <div class="grid md:grid-cols-2 gap-6 mb-12">
-    <FeatureCard
-      icon="🗄️"
-      title="Multiple Database Support"
-      description="Choose from SQLite, PostgreSQL, or MySQL with optional Prisma ORM integration for type-safe database operations."
-    />
-    
-    <FeatureCard
-      icon="🔐"
-      title="Built-in Authentication"
-      description="JWT-based authentication system with password hashing, user registration, and login endpoints ready to use."
-    />
-    
-    <FeatureCard
-      icon="📚"
-      title="API Documentation"
-      description="Automatic Swagger/OpenAPI 3.0 documentation generation with interactive API explorer using swagger-ui-express."
-    />
-    
-    <FeatureCard
-      icon="✅"
-      title="Request Validation"
-      description="Robust input validation using Zod schemas with automatic error handling and type inference."
-    />
-    
-    <FeatureCard
-      icon="🏗️"
-      title="Project Templates"
-      description="Pre-built model relationships (User + Post) or start with a clean slate - perfect for rapid prototyping."
-    />
-    
-    <FeatureCard
-      icon="⚡"
-      title="Modern Tooling"
-      description="ESM modules, environment configuration, error handling, CORS setup, and development server with hot reload."
-    />
-  </div>
-
-  <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">What You Get</h2>
-  
-  <div class="bg-gradient-to-r from-primary-50 to-secondary-50 dark:from-gray-800 dark:to-gray-700 rounded-xl p-8 mb-8">
-    <h3 class="text-xl font-semibold mb-4">Generated Project Structure</h3>
-    <CodeBlock 
-      language="text"
-      code="my-cepress-app/\n├── src/\n│   ├── controllers/     # Route handlers\n│   ├── middleware/      # Custom middleware\n│   ├── models/          # Database models\n│   ├── routes/          # API routes\n│   ├── schemas/         # Zod validation schemas\n│   ├── utils/           # Helper functions\n│   ├── app.js           # Express app setup\n│   └── server.js        # Application entry point\n├── prisma/              # Prisma schema (if selected)\n├── .env.example         # Environment template\n├── package.json         # Dependencies\n"
-    />
-  </div>
-
-  <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">Ready in Minutes</h2>
-  
-  <div class="grid md:grid-cols-3 gap-6 mb-8">
-    <div class="text-center">
-      <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mx-auto mb-4">
-        <span class="text-2xl font-bold text-primary-600 dark:text-primary-400">1</span>
-      </div>
-      <h3 class="font-semibold mb-2">Install & Run</h3>
-      <p class="text-gray-600 dark:text-gray-300 text-sm">Run the command and answer a few questions about your project preferences.</p>
-    </div>
-    
-    <div class="text-center">
-      <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mx-auto mb-4">
-        <span class="text-2xl font-bold text-primary-600 dark:text-primary-400">2</span>
-      </div>
-      <h3 class="font-semibold mb-2">Configure</h3>
-      <p class="text-gray-600 dark:text-gray-300 text-sm">Set up your database connection and environment variables in minutes.</p>
-    </div>
-    
-    <div class="text-center">
-      <div class="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mx-auto mb-4">
-        <span class="text-2xl font-bold text-primary-600 dark:text-primary-400">3</span>
-      </div>
-      <h3 class="font-semibold mb-2">Start Building</h3>
-      <p class="text-gray-600 dark:text-gray-300 text-sm">Your Express API is ready with authentication, validation, and documentation.</p>
+    <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-12">
+      <a href="/quick-start" class="inline-flex items-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-primary-500/25 hover:-translate-y-0.5">
+        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+        </svg>
+        Get Started
+      </a>
+      <a href="https://github.com/Dziqha/CepressDocs" target="_blank" class="inline-flex items-center px-6 py-3 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5">
+        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        </svg>
+        View on GitHub
+      </a>
     </div>
   </div>
 
-  <div class="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-6">
-    <div class="flex items-start space-x-3">
-      <div class="flex-shrink-0">
-        <span class="text-2xl">💡</span>
+<div class="animate-slide-up -mt-10 mb-52 w-full max-w-[260px] mx-auto  px-3 py-2 rounded-lg bg-astro-dark-900/55 border border-gray-700 flex items-center justify-between">
+  <code class="text-sm font-mono text-astro-gray-200 whitespace-nowrap">
+    npx create-cepress my-app
+  </code>
+  <div class="relative ml-1">
+    <button
+      class="text-astro-gray-200 hover:text-astro-gray-100 transition"
+      title="Copy to clipboard"
+      onclick="
+        navigator.clipboard.writeText('npx create-cepress my-app');
+        const tooltip = this.nextElementSibling;
+        tooltip.setAttribute('data-visible', 'true');
+        setTimeout(() => tooltip.setAttribute('data-visible', 'false'), 1500);
+      "
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M7 6V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-3v3c0 .552-.45 1-1.007 1H4.007A1.001 1.001 0 0 1 3 21l.003-14c0-.552.45-1 1.006-1zM5.002 8L5 20h10V8zM9 6h8v10h2V4H9z"/><path fill="currentColor" d="M7 6V3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-3v3c0 .552-.45 1-1.007 1H4.007A1.001 1.001 0 0 1 3 21l.003-14c0-.552.45-1 1.006-1zM5.002 8L5 20h10V8zM9 6h8v10h2V4H9z"/>
+      </svg>
+    </button>
+    <p class="absolute left-1/2 top-[calc(100%+6px)] -translate-x-1/2 rounded bg-gray-500 text-gray-200 dark:bg-black/70 px-2 py-1 text-xs opacity-0 transition data-[visible=true]:opacity-100" data-visible="false">
+      Copied!
+    </p>
+  </div>
+</div>
+
+  
+
+  <!-- Key Features -->
+  <section class="mb-16">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        Everything You Need to Build Modern APIs
+      </h2>
+      <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        Cepress Generator includes all the essential tools and configurations for building production-ready Express.js applications.
+      </p>
+    </div>
+    
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <FeatureCard
+        icon="🗄️"
+        title="Multiple Database Support"
+        description="Choose from SQLite, PostgreSQL, or MySQL with optional Prisma ORM integration for type-safe database operations."
+        delay={0}
+      />
+      
+      <FeatureCard
+        icon="🔐"
+        title="Built-in Authentication"
+        description="JWT-based authentication system with password hashing, user registration, and login endpoints ready to use."
+        delay={100}
+      />
+      
+      <FeatureCard
+        icon="📚"
+        title="API Documentation"
+        description="Automatic Swagger/OpenAPI 3.0 documentation generation with interactive API explorer using swagger-ui-express."
+        delay={200}
+      />
+      
+      <FeatureCard
+        icon="✅"
+        title="Request Validation"
+        description="Robust input validation using Zod schemas with automatic error handling and type inference."
+        delay={300}
+      />
+      
+      <FeatureCard
+        icon="🏗️"
+        title="Project Templates"
+        description="Pre-built model relationships (User  + Post) or start with a clean slate - perfect for rapid prototyping."
+        delay={400}
+      />
+      
+      <FeatureCard
+        icon="⚡"
+        title="Modern Tooling"
+        description="ESM modules, environment configuration, error handling, CORS setup, and development server with hot reload."
+        delay={500}
+      />
+    </div>
+  </section>
+
+  <!-- Project Structure -->
+  <section class="mb-16">
+    <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-8 shadow-lg">
+      <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+        <svg class="w-6 h-6 mr-3 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5a2 2 0 012-2h4a2 2 0 012 2v2H8V5z"></path>
+        </svg>
+        Generated Project Structure
+      </h3>
+      <CodeBlock 
+  language="text"
+  code={`my-cepress-app/
+├── src/
+│   ├── controllers/     # Route handlers & business logic
+│   ├── middleware/      # Custom middleware functions
+│   ├── models/          # Database models (Sequelize/Prisma)
+│   ├── routes/          # API route definitions
+│   ├── schemas/         # Zod validation schemas
+│   ├── config/          # Database & app configuration
+│   ├── utils/           # Helper functions & utilities
+│   ├── app.js           # Express app setup & middleware
+│   └── server.js        # Application entry point
+├── prisma/              # Prisma schema (if selected)
+│   └── schema.prisma    # Database schema definition
+├── .env.example         # Environment variables template
+├── .gitignore           # Git ignore rules
+├── package.json         # Dependencies & scripts
+└── README.md            # Project documentation`} 
+/>
+
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="mb-16">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+        Ready in Minutes, Not Hours
+      </h2>
+      <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        Our interactive CLI guides you through the setup process, generating a fully configured project tailored to your needs.
+      </p>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="text-center group">
+        <div class="w-16 h-16 bg-primary-100 dark:bg-primary-900 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-200 dark:group-hover:bg-primary-800 transition-colors duration-300">
+          <span class="text-3xl font-bold text-primary-600 dark:text-primary-400">1</span>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Install & Configure</h3>
+        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+          Run the command and answer a few questions about your project preferences. Choose your database, authentication method, and features.
+        </p>
       </div>
-      <div>
-        <h3 class="font-semibold text-yellow-800 dark:text-yellow-200 mb-2">Pro Tip</h3>
-        <p class="text-yellow-700 dark:text-yellow-300">
-          Start with the User + Post template to see how relationships work, then customize or create your own models. 
-          The generated code follows Express.js best practices and is production-ready.
+      
+      <div class="text-center group">
+        <div class="w-16 h-16 bg-primary-100 dark:bg-primary-900 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-200 dark:group-hover:bg-primary-800 transition-colors duration-300">
+          <span class="text-3xl font-bold text-primary-600 dark:text-primary-400">2</span>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Setup Environment</h3>
+        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+          Configure your database connection and environment variables. Everything is pre-configured with sensible defaults.
+        </p>
+      </div>
+      
+      <div class="text-center group">
+        <div class="w-16 h-16 bg-primary-100 dark:bg-primary-900 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-200 dark:group-hover:bg-primary-800 transition-colors duration-300">
+          <span class="text-3xl font-bold text-primary-600 dark:text-primary-400">3</span>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Start Building</h3>
+        <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+          Your Express API is ready with authentication, validation, documentation, and best practices built-in.
         </p>
       </div>
     </div>
-  </div>
+  </section>
+
+  <!-- Technology Stack -->
+  <section class="mb-16">
+    <div class="bg-gray-50 dark:bg-gray-800/50 rounded-2xl p-8">
+      <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+        Built with Modern Technologies
+      </h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div class="text-center group">
+          <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform duration-200">
+            <span class="text-white font-bold text-lg">N</span>
+          </div>
+          <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Node.js</span>
+        </div>
+        <div class="text-center group">
+          <div class="w-12 h-12 bg-gray-800 rounded-lg flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform duration-200">
+            <span class="text-white font-bold text-lg">E</span>
+          </div>
+          <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Express</span>
+        </div>
+        <div class="text-center group">
+          <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform duration-200">
+            <span class="text-white font-bold text-lg">P</span>
+          </div>
+          <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Prisma</span>
+        </div>
+        <div class="text-center group">
+          <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform duration-200">
+            <span class="text-white font-bold text-lg">Z</span>
+          </div>
+          <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Zod</span>
+        </div>
+        <div class="text-center group">
+          <div class="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform duration-200">
+            <span class="text-white font-bold text-lg">S</span>
+          </div>
+          <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Swagger</span>
+        </div>
+        <div class="text-center group">
+          <div class="w-12 h-12 bg-red-500 rounded-lg flex items-center justify-center mx-auto mb-2 group-hover:scale-110 transition-transform duration-200">
+            <span class="text-white font-bold text-lg">J</span>
+          </div>
+          <span class="text-sm font-medium text-gray-700 dark:text-gray-300">JWT</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="text-center">
+    <div class="bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 rounded-2xl p-8">
+      <div class="flex items-center justify-center mb-4">
+        <span class="text-4xl mr-3">🚀</span>
+        <h3 class="text-2xl font-bold text-primary-900 dark:text-primary-100">Ready to Build Something Amazing?</h3>
+      </div>
+      <p class="text-primary-700 dark:text-primary-300 mb-6 max-w-2xl mx-auto">
+        Join thousands of developers who are building faster with Cepress Generator. 
+        Start with our User + Post template to see relationships in action, then customize for your needs.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center space-y-3 sm:space-y-0 sm:space-x-4">
+        <a href="/installation" class="inline-flex items-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-semibold rounded-xl transition-all duration-200 hover:shadow-lg hover:shadow-primary-500/25 hover:-translate-y-0.5">
+          Start Building Now
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+        <a href="/quick-start" class="inline-flex items-center px-6 py-3 text-primary-600 dark:text-primary-400 font-semibold hover:text-primary-700 dark:hover:text-primary-300 transition-colors duration-200">
+          View Quick Start Guide
+        </a>
+      </div>
+    </div>
+  </section>
 </DocsLayout>

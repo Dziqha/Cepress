@@ -14,15 +14,15 @@ import DocsLayout from '../layouts/DocsLayout.astro';
 
   <pre class="bg-gray-100 dark:bg-gray-800 rounded-md p-4 text-sm overflow-auto"><code>http://localhost:3000/api-docs</code></pre>
 
-  <p class="mb-6">This provides a live, interactive view of all your endpoints, request/response types, and schemas.</p>
+  <p class="mb-6 mt-2">This provides a live, interactive view of all your endpoints, request/response types, and schemas.</p>
 
   <h2 class="text-2xl font-semibold mt-12 mb-6">How It Works</h2>
   <ul class="space-y-2 text-gray-700 dark:text-gray-300">
-    <li>• Swagger config is located in <code>src/swagger.ts</code></li>
+    <li>• Swagger config is located in <code>src/config/swagger.js</code></li>
     <li>• Decorated route handlers automatically generate specs</li>
     <li>• You can customize descriptions, examples, and tags</li>
   </ul>
 
   <h2 class="text-2xl font-semibold mt-12 mb-6">Disabling Swagger</h2>
-  <p class="mb-4">You can disable Swagger during project setup or remove the related middleware from <code>src/index.ts</code>.</p>
+  <p class="mb-4">You can disable Swagger during project setup or remove the related middleware from <code>src/app.js</code>.</p>
 </DocsLayout>
