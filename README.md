@@ -1,6 +1,6 @@
-# Cepress Monorepo
+# Cepress
 
-Monorepo resmi untuk:
+
 
 - 🛠️ CLI Generator: `create-cepress`
 - 🌐 Dokumentasi Web: Astro Docs
