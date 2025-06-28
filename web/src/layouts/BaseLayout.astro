@@ -1,4 +1,6 @@
+
 ---
+// BaseLayout.astro - Improved responsive base
 export interface Props {
   title: string;
   description?: string;
@@ -8,7 +10,7 @@ const { title, description = "Cepress Generator - Create Node.js Express project
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="h-full scroll-smooth">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,38 +20,64 @@ const { title, description = "Cepress Generator - Create Node.js Express project
     <meta name="description" content={description} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Improved viewport meta for better mobile experience -->
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#111827" media="(prefers-color-scheme: dark)" />
+    
+    <!-- Prevent zoom on input focus on iOS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   </head>
   <body class="h-full bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 antialiased">
     <slot />
     
     <script>
-      // Theme toggle functionality
-      function initTheme() {
-        const theme = localStorage.getItem('theme') || 
-          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        document.documentElement.classList.toggle('dark', theme === 'dark');
-      }
-      
-      initTheme();
+      // Theme initialization
+      const theme = localStorage.getItem('theme') || 
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.classList.toggle('dark', theme === 'dark');
       
       // Smooth scroll for anchor links
       document.addEventListener('DOMContentLoaded', () => {
-  const links = document.querySelectorAll('a[href^="#"]');
-  links.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const href = link.getAttribute('href');
-      if (href) {
-        const target = document.querySelector(href);
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    });
-  });
-});
+        const links = document.querySelectorAll('a[href^="#"]');
+        links.forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const href = link.getAttribute('href');
+            if (href) {
+              const target = document.querySelector(href);
+              if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+              }
+            }
+          });
+        });
+      });
 
+      // Handle touch events for better mobile interaction
+      let touchStartX = 0;
+      let touchStartY = 0;
+      
+      document.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+      
+      document.addEventListener('touchmove', (e) => {
+        const touchCurrentX = e.touches[0].clientX;
+        const touchCurrentY = e.touches[0].clientY;
+        const diffX = touchStartX - touchCurrentX;
+        const diffY = touchStartY - touchCurrentY;
+        
+        // Prevent horizontal scroll on mobile
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+          // Only prevent if it's a horizontal swipe
+          if (Math.abs(diffX) > 50) {
+            e.preventDefault();
+          }
+        }
+      }, { passive: false });
     </script>
   </body>
 </html>
